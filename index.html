@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -208,8 +207,14 @@ body{
 }
 
 @keyframes sunmove{
-    from{opacity:.4;transform:rotate(18deg) translateX(-10px)}
-    to{opacity:.75;transform:rotate(18deg) translateX(20px)}
+    from{
+        opacity:.4;
+        transform:rotate(18deg) translateX(-10px)
+    }
+    to{
+        opacity:.75;
+        transform:rotate(18deg) translateX(20px)
+    }
 }
 
 /* curtains */
@@ -268,9 +273,17 @@ body{
 .dust span:nth-child(7){left:15%;top:35%;animation-duration:14s}
 
 @keyframes floatDust{
-    0%{transform:translate(0,0);opacity:0}
-    20%{opacity:.8}
-    100%{transform:translate(60px,-150px);opacity:0}
+    0%{
+        transform:translate(0,0);
+        opacity:0
+    }
+    20%{
+        opacity:.8
+    }
+    100%{
+        transform:translate(60px,-150px);
+        opacity:0
+    }
 }
 
 /* =========================
@@ -319,7 +332,9 @@ body{
 .blades i:nth-child(3){transform:rotate(240deg)}
 
 @keyframes spin{
-    to{transform:rotate(360deg)}
+    to{
+        transform:rotate(360deg)
+    }
 }
 
 /* =========================
@@ -463,45 +478,119 @@ body{
 }
 
 /* =========================
-   TEACHER PHOTO
+   TEACHER'S BRAHMĀSTRA
 ========================= */
 
-.photo-frame{
+.brahmastra{
     position:absolute;
-    left:27%;
-    bottom:31%;
-    width:120px;
-    height:145px;
-    padding:8px 8px 25px;
-    background:#eee3c9;
-    transform:rotate(-4deg);
-    box-shadow:0 15px 25px rgba(0,0,0,.55);
+    right:28%;
+    bottom:28%;
+    width:115px;
+    height:75px;
+    z-index:13;
     cursor:pointer;
-    z-index:8;
-    transition:.4s;
+    transform:rotate(-3deg);
+    transition:.45s;
 }
 
-.photo-frame:hover{
-    transform:rotate(0deg) scale(1.08) translateY(-5px);
+.brahmastra:hover{
+    transform:rotate(0deg) scale(1.12) translateY(-6px);
 }
 
-.photo-frame img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-    background:#ccc;
-}
-
-.photo-caption{
+.brahma-book{
     position:absolute;
-    bottom:3px;
-    left:0;
-    right:0;
-    text-align:center;
-    color:#342d25;
-    font-family:Caveat,cursive;
-    font-size:17px;
+    left:10px;
+    bottom:0;
+    width:72px;
+    height:42px;
+    border-radius:3px 8px 5px 3px;
+    background:linear-gradient(135deg,#5d3c29,#8b6241);
+    border:2px solid #3c281b;
+    box-shadow:
+        0 12px 18px rgba(0,0,0,.55),
+        inset 5px 0 rgba(255,255,255,.08);
+}
+
+.brahma-book:after{
+    content:"";
+    position:absolute;
+    left:10px;
+    right:8px;
+    top:12px;
+    height:1px;
+    background:rgba(255,235,180,.35);
+    box-shadow:0 7px rgba(255,235,180,.2);
+}
+
+.brahma-pen{
+    position:absolute;
+    left:32px;
+    top:12px;
+    width:82px;
+    height:7px;
+    border-radius:10px;
+    background:linear-gradient(
+        90deg,
+        #d5b15c,
+        #f2d98a,
+        #8f6c2e
+    );
+    transform:rotate(-17deg);
+    box-shadow:0 4px 10px rgba(0,0,0,.55);
+}
+
+.brahma-pen:before{
+    content:"";
+    position:absolute;
+    left:-11px;
+    top:1px;
+    border-top:3px solid transparent;
+    border-bottom:3px solid transparent;
+    border-right:12px solid #d6c49a;
+}
+
+.brahma-pen:after{
+    content:"";
+    position:absolute;
+    right:10px;
+    top:-3px;
+    width:8px;
+    height:13px;
+    border-radius:2px;
+    background:#b48a3e;
+}
+
+.brahma-stick{
+    position:absolute;
+    left:4px;
+    top:19px;
+    width:92px;
+    height:8px;
+    border-radius:5px;
+    background:linear-gradient(
+        90deg,
+        #b78950,
+        #e0bb76,
+        #9b6937
+    );
+    transform:rotate(14deg);
+    box-shadow:0 5px 10px rgba(0,0,0,.5);
+}
+
+.brahma-stick:after{
+    content:"";
+    position:absolute;
+    inset:2px 8px;
+    background:repeating-linear-gradient(
+        90deg,
+        transparent 0 11px,
+        rgba(70,40,20,.45) 12px 13px
+    );
+}
+
+.brahmastra.secret:after{
+    inset:-14px;
+    border-radius:20px;
 }
 
 /* =========================
@@ -723,15 +812,6 @@ body{
     box-shadow:0 0 45px rgba(255,205,100,.15);
 }
 
-.photo-big{
-    display:block;
-    width:100%;
-    max-height:55vh;
-    object-fit:contain;
-    border-radius:12px;
-    margin:20px auto;
-}
-
 /* =========================
    FINAL
 ========================= */
@@ -843,13 +923,6 @@ body{
         border-width:9px;
     }
 
-    .photo-frame{
-        width:85px;
-        height:105px;
-        left:8%;
-        bottom:32%;
-    }
-
     .shelf{
         right:4%;
         bottom:31%;
@@ -872,6 +945,12 @@ body{
     .fan{
         left:43%;
         transform:scale(.65);
+    }
+
+    .brahmastra{
+        right:25%;
+        bottom:30%;
+        transform:scale(.8) rotate(-3deg);
     }
 
     .chalk-line.one{
@@ -918,12 +997,14 @@ body{
         width:18px;
     }
 
-    .photo-frame{
-        bottom:28%;
-    }
-
     .desk{
         bottom:9%;
+    }
+
+    .brahmastra{
+        right:18%;
+        bottom:27%;
+        transform:scale(.65) rotate(-3deg);
     }
 }
 </style>
@@ -937,7 +1018,10 @@ body{
 
 <section id="intro">
     <div class="intro-content">
-        <div class="intro-small">A little journey for someone special</div>
+
+        <div class="intro-small">
+            A little journey for someone special
+        </div>
 
         <h1 class="intro-title">
             Welcome Back
@@ -952,6 +1036,7 @@ body{
         <button class="enter" onclick="enterClassroom()">
             Enter the classroom →
         </button>
+
     </div>
 </section>
 
@@ -966,7 +1051,9 @@ body{
 
     <div class="topbar">
         <div class="logo">A Classroom Remembered</div>
-        <div class="counter" id="counter">0 / 6 discoveries</div>
+        <div class="counter" id="counter">
+            0 / 5 discoveries
+        </div>
     </div>
 
     <main class="classroom" id="classroom">
@@ -982,79 +1069,107 @@ body{
         <div class="curtain right"></div>
 
         <div class="dust">
-            <span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
 
         <!-- FAN -->
+
         <div class="fan">
+
             <div class="blades">
-                <i></i><i></i><i></i>
+                <i></i>
+                <i></i>
+                <i></i>
             </div>
+
             <div class="fan-center"></div>
+
         </div>
 
 
         <!-- BLACKBOARD -->
+
         <div
             class="board secret"
             id="board"
             onclick="discover('board')"
         >
+
             <div class="chalk-line one" id="line1"></div>
+
             <div class="chalk-line two" id="line2"></div>
 
             <div class="board-note">
                 Some lessons stay forever...
             </div>
+
         </div>
 
 
         <!-- SHELF -->
-        <div class="shelf secret" onclick="discover('shelf')">
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
-        </div>
 
-
-        <!-- TEACHER PHOTO -->
         <div
-            class="photo-frame secret"
-            onclick="discover('photo')"
+            class="shelf secret"
+            onclick="discover('shelf')"
         >
-            <img
-                src="teacher.jpg"
-                alt="Teacher"
-                onerror="this.style.opacity='.15'"
-            >
-            <div class="photo-caption">Our Teacher ❤️</div>
+
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+
         </div>
 
 
         <!-- DESK -->
+
         <div class="desk">
 
             <div
                 class="drawer secret"
                 onclick="discover('drawer')"
             >
+
                 <div class="drawer-handle"></div>
+
             </div>
 
         </div>
 
 
+        <!-- TEACHER'S BRAHMĀSTRA -->
+
+        <div
+            class="brahmastra secret"
+            onclick="discover('brahmastra')"
+            title="Something powerful is hiding here..."
+        >
+
+            <div class="brahma-book"></div>
+            <div class="brahma-stick"></div>
+            <div class="brahma-pen"></div>
+
+        </div>
+
+
         <!-- BELL -->
+
         <div
             class="bell secret"
             onclick="discover('bell')"
         >
+
             <div class="bell-top"></div>
             <div class="bell-body"></div>
             <div class="bell-bottom"></div>
+
         </div>
 
     </main>
@@ -1065,11 +1180,25 @@ body{
      MODAL
 ========================= -->
 
-<div class="modal" id="modal" onclick="outsideClose(event)">
+<div
+    class="modal"
+    id="modal"
+    onclick="outsideClose(event)"
+>
+
     <div class="modal-card">
-        <button class="close" onclick="closeModal()">×</button>
+
+        <button
+            class="close"
+            onclick="closeModal()"
+        >
+            ×
+        </button>
+
         <div id="modalContent"></div>
+
     </div>
+
 </div>
 
 
@@ -1078,6 +1207,7 @@ body{
 ========================= -->
 
 <div id="final">
+
     <div class="final-content">
 
         <div class="final-eyebrow">
@@ -1095,21 +1225,16 @@ body{
             and every moment that made us believe we could do better.
         </p>
 
-        <div class="heart">❤️</div>
+        <div class="heart">
+            ❤️
+        </div>
 
     </div>
+
 </div>
 
 
 <script>
-
-/* =========================================
-   PHOTO SETTINGS
-   Simply change these filenames if needed.
-========================================= */
-
-const TEACHER_PHOTO = "teacher.jpg";
-
 
 /* =========================================
    DISCOVERY SYSTEM
@@ -1117,7 +1242,7 @@ const TEACHER_PHOTO = "teacher.jpg";
 
 const discoveries = new Set();
 
-const totalDiscoveries = 6;
+const totalDiscoveries = 5;
 
 function discover(item){
 
@@ -1133,10 +1258,6 @@ function discover(item){
         boardMessage();
     }
 
-    if(item === "photo"){
-        teacherPhoto();
-    }
-
     if(item === "drawer"){
         letter();
     }
@@ -1149,9 +1270,16 @@ function discover(item){
         bell();
     }
 
-    if(discoveries.size === totalDiscoveries){
-        setTimeout(showFinal,1800);
+    if(item === "brahmastra"){
+        brahmastra();
     }
+
+    if(discoveries.size === totalDiscoveries){
+
+        setTimeout(showFinal,1800);
+
+    }
+
 }
 
 
@@ -1168,6 +1296,7 @@ function updateProgress(){
 
     document.getElementById("progress").style.width =
         (count / totalDiscoveries * 100) + "%";
+
 }
 
 
@@ -1177,12 +1306,22 @@ function updateProgress(){
 
 function enterClassroom(){
 
-    document.getElementById("intro").classList.add("hide");
+    document
+        .getElementById("intro")
+        .classList
+        .add("hide");
 
     setTimeout(()=>{
-        document.getElementById("world").classList.add("show");
+
+        document
+            .getElementById("world")
+            .classList
+            .add("show");
+
         startChalk();
+
     },700);
+
 }
 
 
@@ -1213,17 +1352,23 @@ function typeText(element,text,speed,callback){
             if(callback){
                 callback();
             }
+
         }
+
     }
 
     type();
+
 }
 
 
 function startChalk(){
 
-    const line1 = document.getElementById("line1");
-    const line2 = document.getElementById("line2");
+    const line1 =
+        document.getElementById("line1");
+
+    const line2 =
+        document.getElementById("line2");
 
     setTimeout(()=>{
 
@@ -1232,17 +1377,22 @@ function startChalk(){
             "Happy Teacher's Day ❤️",
             90,
             ()=>{
+
                 setTimeout(()=>{
+
                     typeText(
                         line2,
                         "To The Best Teacher Ever ✨",
                         75
                     );
+
                 },700);
+
             }
         );
 
     },900);
+
 }
 
 
@@ -1253,46 +1403,33 @@ function startChalk(){
 function boardMessage(){
 
     openModal(`
+
         <h2>The first lesson</h2>
 
-        <p style="font-family:Caveat;font-size:28px;color:#eee6d1;">
+        <p style="
+            font-family:Caveat;
+            font-size:28px;
+            color:#eee6d1;
+        ">
+
             "A good teacher explains.<br>
             A great teacher inspires."
+
         </p>
 
         <br>
 
         <p>
+
             And somewhere between the lessons,
             homework, questions and exams,
             you managed to leave something much more
             important behind — memories.
+
         </p>
+
     `);
-}
 
-
-/* =========================================
-   TEACHER PHOTO
-========================================= */
-
-function teacherPhoto(){
-
-    openModal(`
-        <h2>Someone worth remembering ❤️</h2>
-
-        <img
-            class="photo-big"
-            src="${TEACHER_PHOTO}"
-            onerror="this.style.display='none'"
-            alt="Teacher"
-        >
-
-        <p style="text-align:center;">
-            Behind every successful student,
-            there is often a teacher who refused to give up on them.
-        </p>
-    `);
 }
 
 
@@ -1303,6 +1440,7 @@ function teacherPhoto(){
 function letter(){
 
     openModal(`
+
         <h2>A letter from the last bench...</h2>
 
         <div class="letter">
@@ -1339,7 +1477,9 @@ function letter(){
             Happy Teacher's Day. ❤️
 
         </div>
+
     `);
+
 }
 
 
@@ -1350,6 +1490,7 @@ function letter(){
 function award(){
 
     openModal(`
+
         <div class="award">
 
             <div class="award-circle">
@@ -1379,7 +1520,9 @@ function award(){
             </p>
 
         </div>
+
     `);
+
 }
 
 
@@ -1392,9 +1535,13 @@ function bell(){
     playBell();
 
     openModal(`
+
         <div style="text-align:center">
 
-            <div style="font-size:65px;margin-bottom:15px;">
+            <div style="
+                font-size:65px;
+                margin-bottom:15px;
+            ">
                 🔔
             </div>
 
@@ -1415,7 +1562,9 @@ function bell(){
             </p>
 
         </div>
+
     `);
+
 }
 
 
@@ -1427,19 +1576,31 @@ function playBell(){
             window.AudioContext ||
             window.webkitAudioContext;
 
-        const ctx = new AudioContext();
+        const ctx =
+            new AudioContext();
 
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
+        const osc =
+            ctx.createOscillator();
+
+        const gain =
+            ctx.createGain();
 
         osc.type = "sine";
-        osc.frequency.setValueAtTime(700,ctx.currentTime);
+
+        osc.frequency.setValueAtTime(
+            700,
+            ctx.currentTime
+        );
+
         osc.frequency.exponentialRampToValueAtTime(
             420,
             ctx.currentTime + 1
         );
 
-        gain.gain.setValueAtTime(.0001,ctx.currentTime);
+        gain.gain.setValueAtTime(
+            .0001,
+            ctx.currentTime
+        );
 
         gain.gain.exponentialRampToValueAtTime(
             .25,
@@ -1452,12 +1613,87 @@ function playBell(){
         );
 
         osc.connect(gain);
+
         gain.connect(ctx.destination);
 
         osc.start();
-        osc.stop(ctx.currentTime + 1.3);
+
+        osc.stop(
+            ctx.currentTime + 1.3
+        );
 
     }catch(e){}
+
+}
+
+
+/* =========================================
+   TEACHER'S BRAHMĀSTRA
+========================================= */
+
+function brahmastra(){
+
+    openModal(`
+
+        <div style="text-align:center">
+
+            <div style="
+                font-size:65px;
+                margin-bottom:10px;
+                filter:drop-shadow(
+                    0 0 18px
+                    rgba(255,210,100,.5)
+                );
+            ">
+                ⚡
+            </div>
+
+            <h2>
+                The Teacher's Brahmāstra
+            </h2>
+
+            <p style="
+                font-family:Caveat;
+                font-size:30px;
+                color:#f0d68c;
+                margin:15px 0;
+            ">
+                Pen. Book. And the legendary stick.
+            </p>
+
+            <p>
+                Three simple things that have witnessed
+                countless lessons, corrections,
+                doubts, punishments, laughter
+                and unforgettable memories.
+            </p>
+
+            <br>
+
+            <p style="
+                font-family:Caveat;
+                font-size:28px;
+                color:#eee6d1;
+            ">
+                Every classroom had one.<br>
+                Every student remembers one.
+            </p>
+
+            <br>
+
+            <p style="
+                font-size:13px;
+                letter-spacing:3px;
+                text-transform:uppercase;
+                opacity:.55;
+            ">
+                Discovery #5 — Complete
+            </p>
+
+        </div>
+
+    `);
+
 }
 
 
@@ -1467,15 +1703,22 @@ function playBell(){
 
 function openModal(content){
 
-    document.getElementById("modalContent").innerHTML = content;
+    document.getElementById("modalContent")
+        .innerHTML = content;
 
-    document.getElementById("modal").classList.add("show");
+    document.getElementById("modal")
+        .classList
+        .add("show");
+
 }
 
 
 function closeModal(){
 
-    document.getElementById("modal").classList.remove("show");
+    document.getElementById("modal")
+        .classList
+        .remove("show");
+
 }
 
 
@@ -1484,6 +1727,7 @@ function outsideClose(e){
     if(e.target.id === "modal"){
         closeModal();
     }
+
 }
 
 
@@ -1499,11 +1743,13 @@ function showFinal(){
 
         document
             .getElementById("final")
-            .classList.add("show");
+            .classList
+            .add("show");
 
         createParticles();
 
     },800);
+
 }
 
 
@@ -1513,16 +1759,27 @@ function showFinal(){
 
 function createParticles(){
 
-    const symbols = ["❤️","✨","⭐","♡","✦"];
+    const symbols = [
+        "❤️",
+        "✨",
+        "⭐",
+        "♡",
+        "✦"
+    ];
 
     for(let i=0;i<70;i++){
 
-        const p = document.createElement("div");
+        const p =
+            document.createElement("div");
 
         p.className = "particle";
 
         p.innerText =
-            symbols[Math.floor(Math.random()*symbols.length)];
+            symbols[
+                Math.floor(
+                    Math.random()*symbols.length
+                )
+            ];
 
         p.style.left =
             (Math.random()*100) + "vw";
@@ -1548,7 +1805,9 @@ function createParticles(){
         setTimeout(()=>{
             p.remove();
         },4500);
+
     }
+
 }
 
 
@@ -1556,39 +1815,46 @@ function createParticles(){
    SMALL PARALLAX EFFECT
 ========================================= */
 
-document.addEventListener("mousemove",e=>{
+document.addEventListener(
+    "mousemove",
+    e=>{
 
-    const classroom =
-        document.getElementById("classroom");
+        const classroom =
+            document.getElementById("classroom");
 
-    if(!classroom) return;
+        if(!classroom) return;
 
-    const x =
-        (e.clientX / window.innerWidth - .5) * 2;
+        const x =
+            (e.clientX /
+            window.innerWidth - .5) * 2;
 
-    const y =
-        (e.clientY / window.innerHeight - .5) * 2;
+        const y =
+            (e.clientY /
+            window.innerHeight - .5) * 2;
 
-    classroom.style.transform =
-        `translate(${x * 5}px,${y * 3}px)`;
-});
+        classroom.style.transform =
+            `translate(${x * 5}px,${y * 3}px)`;
+
+    }
+);
 
 
 /* =========================================
    KEYBOARD
 ========================================= */
 
-document.addEventListener("keydown",e=>{
+document.addEventListener(
+    "keydown",
+    e=>{
 
-    if(e.key === "Escape"){
-        closeModal();
+        if(e.key === "Escape"){
+            closeModal();
+        }
+
     }
-
-});
-
+);
 
 </script>
 
 </body>
 </html>
-```

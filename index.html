@@ -1,0 +1,1594 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For The Teacher Who Made A Difference ❤️</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+body{
+    font-family:"DM Sans",sans-serif;
+    background:#050609;
+    color:white;
+}
+
+/* =========================
+   INTRO
+========================= */
+
+#intro{
+    position:fixed;
+    inset:0;
+    z-index:1000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:
+        radial-gradient(circle at 50% 45%,rgba(255,200,100,.08),transparent 30%),
+        #050609;
+    transition:opacity 1.4s ease,visibility 1.4s;
+}
+
+#intro.hide{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+
+.intro-content{
+    width:min(800px,90%);
+}
+
+.intro-small{
+    letter-spacing:6px;
+    text-transform:uppercase;
+    font-size:11px;
+    opacity:.5;
+    margin-bottom:28px;
+}
+
+.intro-title{
+    font-family:"Playfair Display",serif;
+    font-size:clamp(42px,7vw,92px);
+    line-height:1;
+    margin-bottom:25px;
+}
+
+.intro-title span{
+    display:block;
+    font-family:Caveat,cursive;
+    font-size:clamp(34px,5vw,65px);
+    font-weight:600;
+    margin-top:15px;
+}
+
+.intro-text{
+    opacity:.55;
+    max-width:500px;
+    margin:auto;
+    line-height:1.7;
+}
+
+.enter{
+    margin-top:40px;
+    border:1px solid rgba(255,255,255,.2);
+    background:rgba(255,255,255,.05);
+    color:white;
+    padding:16px 32px;
+    border-radius:100px;
+    cursor:pointer;
+    font-size:14px;
+    letter-spacing:1px;
+    transition:.4s;
+    backdrop-filter:blur(12px);
+}
+
+.enter:hover{
+    background:white;
+    color:#111;
+    transform:translateY(-3px);
+}
+
+/* =========================
+   MAIN WORLD
+========================= */
+
+#world{
+    position:fixed;
+    inset:0;
+    opacity:0;
+    transition:opacity 2s;
+}
+
+#world.show{
+    opacity:1;
+}
+
+.classroom{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    perspective:1200px;
+    background:#15130f;
+}
+
+/* wall */
+
+.wall{
+    position:absolute;
+    inset:0 0 28% 0;
+    background:
+        linear-gradient(rgba(255,240,205,.04) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,240,205,.025) 1px,transparent 1px),
+        linear-gradient(180deg,#40372d,#2c2823);
+    background-size:80px 80px,80px 80px,100% 100%;
+}
+
+/* floor */
+
+.floor{
+    position:absolute;
+    left:-10%;
+    right:-10%;
+    bottom:-25%;
+    height:48%;
+    transform:perspective(600px) rotateX(58deg);
+    transform-origin:top;
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #30271e 0px,
+            #30271e 100px,
+            #382d23 101px,
+            #382d23 104px
+        );
+    box-shadow:0 -20px 70px rgba(0,0,0,.5);
+}
+
+/* =========================
+   WINDOWS + LIGHT
+========================= */
+
+.window{
+    position:absolute;
+    width:min(360px,32vw);
+    height:min(330px,42vh);
+    right:6%;
+    top:10%;
+    border:14px solid #211c17;
+    background:
+        linear-gradient(90deg,transparent 49%,#211c17 49%,#211c17 51%,transparent 51%),
+        linear-gradient(transparent 49%,#211c17 49%,#211c17 51%,transparent 51%),
+        linear-gradient(140deg,#9fd3e8,#dbeef4);
+    box-shadow:0 20px 60px rgba(0,0,0,.45);
+}
+
+.window:after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(110deg,rgba(255,240,180,.35),transparent 55%);
+}
+
+.sunbeam{
+    position:absolute;
+    width:55%;
+    height:150%;
+    right:15%;
+    top:0;
+    transform:rotate(18deg);
+    transform-origin:top;
+    background:linear-gradient(
+        90deg,
+        rgba(255,222,146,.18),
+        rgba(255,222,146,.03),
+        transparent
+    );
+    filter:blur(4px);
+    animation:sunmove 8s ease-in-out infinite alternate;
+    pointer-events:none;
+}
+
+@keyframes sunmove{
+    from{opacity:.4;transform:rotate(18deg) translateX(-10px)}
+    to{opacity:.75;transform:rotate(18deg) translateX(20px)}
+}
+
+/* curtains */
+
+.curtain{
+    position:absolute;
+    top:4%;
+    width:10%;
+    height:48%;
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #4a171b 0px,
+            #641d23 18px,
+            #3a1115 36px
+        );
+    box-shadow:0 20px 35px rgba(0,0,0,.4);
+}
+
+.curtain.left{
+    left:3%;
+    clip-path:polygon(0 0,100% 0,75% 100%,0 86%);
+}
+
+.curtain.right{
+    right:3%;
+    clip-path:polygon(0 0,100% 0,100% 86%,25% 100%);
+}
+
+/* =========================
+   DUST
+========================= */
+
+.dust{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+}
+
+.dust span{
+    position:absolute;
+    width:3px;
+    height:3px;
+    border-radius:50%;
+    background:rgba(255,230,170,.6);
+    animation:floatDust linear infinite;
+}
+
+.dust span:nth-child(1){left:20%;top:50%;animation-duration:12s}
+.dust span:nth-child(2){left:35%;top:30%;animation-duration:9s}
+.dust span:nth-child(3){left:48%;top:55%;animation-duration:15s}
+.dust span:nth-child(4){left:60%;top:38%;animation-duration:11s}
+.dust span:nth-child(5){left:73%;top:50%;animation-duration:13s}
+.dust span:nth-child(6){left:82%;top:32%;animation-duration:8s}
+.dust span:nth-child(7){left:15%;top:35%;animation-duration:14s}
+
+@keyframes floatDust{
+    0%{transform:translate(0,0);opacity:0}
+    20%{opacity:.8}
+    100%{transform:translate(60px,-150px);opacity:0}
+}
+
+/* =========================
+   CEILING FAN
+========================= */
+
+.fan{
+    position:absolute;
+    top:3%;
+    left:48%;
+    width:90px;
+    height:90px;
+    z-index:4;
+}
+
+.fan-center{
+    position:absolute;
+    left:35px;
+    top:35px;
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    background:#777;
+    box-shadow:0 4px 12px #000;
+}
+
+.blades{
+    position:absolute;
+    inset:0;
+    animation:spin 5s linear infinite;
+}
+
+.blades i{
+    position:absolute;
+    left:40px;
+    top:5px;
+    width:12px;
+    height:40px;
+    border-radius:50%;
+    background:#777;
+    transform-origin:6px 40px;
+}
+
+.blades i:nth-child(1){transform:rotate(0deg)}
+.blades i:nth-child(2){transform:rotate(120deg)}
+.blades i:nth-child(3){transform:rotate(240deg)}
+
+@keyframes spin{
+    to{transform:rotate(360deg)}
+}
+
+/* =========================
+   BLACKBOARD
+========================= */
+
+.board{
+    position:absolute;
+    left:8%;
+    top:13%;
+    width:52%;
+    height:47%;
+    background:
+        radial-gradient(circle at 30% 30%,rgba(255,255,255,.04),transparent 30%),
+        linear-gradient(135deg,#16231d,#0c1511);
+    border:15px solid #4c3523;
+    border-radius:5px;
+    box-shadow:
+        0 30px 70px rgba(0,0,0,.65),
+        inset 0 0 30px rgba(0,0,0,.8);
+    cursor:pointer;
+    transform:rotateY(0deg);
+    transition:.5s;
+}
+
+.board:hover{
+    transform:translateY(-4px) scale(1.005);
+}
+
+.board:before{
+    content:"";
+    position:absolute;
+    inset:12px;
+    border:1px solid rgba(255,255,255,.06);
+    pointer-events:none;
+}
+
+.chalk-line{
+    position:absolute;
+    left:8%;
+    right:8%;
+    top:23%;
+    text-align:center;
+    font-family:Caveat,cursive;
+    color:#f4f1df;
+    text-shadow:0 0 8px rgba(255,255,255,.18);
+}
+
+.chalk-line.one{
+    font-size:clamp(28px,4vw,58px);
+}
+
+.chalk-line.two{
+    top:47%;
+    font-size:clamp(25px,3.5vw,50px);
+}
+
+.chalk-cursor{
+    display:inline-block;
+    width:2px;
+    height:1em;
+    background:white;
+    vertical-align:middle;
+    animation:blink .7s infinite;
+}
+
+@keyframes blink{
+    50%{opacity:0}
+}
+
+.board-note{
+    position:absolute;
+    bottom:8%;
+    right:7%;
+    font-family:Caveat,cursive;
+    font-size:20px;
+    color:#d9d4c5;
+    opacity:.55;
+}
+
+/* =========================
+   SHELF
+========================= */
+
+.shelf{
+    position:absolute;
+    right:8%;
+    bottom:29%;
+    width:25%;
+    height:16%;
+    background:#3b2518;
+    border:8px solid #28170f;
+    box-shadow:0 20px 35px rgba(0,0,0,.55);
+}
+
+.book{
+    position:absolute;
+    bottom:8px;
+    width:28px;
+    height:90px;
+    border-radius:2px 2px 0 0;
+    background:#7a4433;
+    box-shadow:inset 3px 0 rgba(255,255,255,.08);
+}
+
+.book:nth-child(1){left:12%;height:75px}
+.book:nth-child(2){left:25%;height:95px;background:#354c54}
+.book:nth-child(3){left:38%;height:84px;background:#705d31}
+.book:nth-child(4){left:51%;height:100px;background:#553d55}
+.book:nth-child(5){left:64%;height:78px;background:#384e3c}
+
+/* =========================
+   HINT GLOW SYSTEM
+========================= */
+
+.secret{
+    position:relative;
+}
+
+.secret:after{
+    content:"";
+    position:absolute;
+    inset:-8px;
+    border-radius:inherit;
+    box-shadow:0 0 0 rgba(255,214,100,0);
+    animation:hint 3s ease-in-out infinite;
+    pointer-events:none;
+}
+
+@keyframes hint{
+    0%,100%{
+        opacity:.15;
+        box-shadow:0 0 0 rgba(255,214,100,0);
+    }
+    50%{
+        opacity:.9;
+        box-shadow:
+            0 0 8px rgba(255,214,100,.5),
+            0 0 22px rgba(255,214,100,.18);
+    }
+}
+
+/* =========================
+   TEACHER PHOTO
+========================= */
+
+.photo-frame{
+    position:absolute;
+    left:27%;
+    bottom:31%;
+    width:120px;
+    height:145px;
+    padding:8px 8px 25px;
+    background:#eee3c9;
+    transform:rotate(-4deg);
+    box-shadow:0 15px 25px rgba(0,0,0,.55);
+    cursor:pointer;
+    z-index:8;
+    transition:.4s;
+}
+
+.photo-frame:hover{
+    transform:rotate(0deg) scale(1.08) translateY(-5px);
+}
+
+.photo-frame img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    background:#ccc;
+}
+
+.photo-caption{
+    position:absolute;
+    bottom:3px;
+    left:0;
+    right:0;
+    text-align:center;
+    color:#342d25;
+    font-family:Caveat,cursive;
+    font-size:17px;
+}
+
+/* =========================
+   DESK
+========================= */
+
+.desk{
+    position:absolute;
+    left:20%;
+    bottom:10%;
+    width:48%;
+    height:18%;
+    background:linear-gradient(#765039,#4c2f20);
+    border-radius:6px 6px 2px 2px;
+    box-shadow:0 25px 40px rgba(0,0,0,.6);
+    z-index:10;
+}
+
+.desk:before,
+.desk:after{
+    content:"";
+    position:absolute;
+    bottom:-120px;
+    width:18px;
+    height:125px;
+    background:#3c2518;
+}
+
+.desk:before{left:8%}
+.desk:after{right:8%}
+
+.drawer{
+    position:absolute;
+    left:20%;
+    top:25%;
+    width:60%;
+    height:42%;
+    background:#382117;
+    border:2px solid #68442c;
+    cursor:pointer;
+}
+
+.drawer-handle{
+    position:absolute;
+    left:46%;
+    top:35%;
+    width:25px;
+    height:8px;
+    border-radius:10px;
+    background:#b18b51;
+}
+
+/* =========================
+   BELL
+========================= */
+
+.bell{
+    position:absolute;
+    right:17%;
+    bottom:27%;
+    width:55px;
+    height:65px;
+    cursor:pointer;
+    z-index:12;
+    filter:drop-shadow(0 12px 10px rgba(0,0,0,.6));
+}
+
+.bell-top{
+    width:15px;
+    height:10px;
+    margin:auto;
+    background:#c89c48;
+    border-radius:10px 10px 2px 2px;
+}
+
+.bell-body{
+    margin:auto;
+    width:52px;
+    height:45px;
+    background:linear-gradient(90deg,#876324,#e1bd65,#876324);
+    border-radius:28px 28px 8px 8px;
+}
+
+.bell-bottom{
+    width:62px;
+    height:8px;
+    margin-left:-3px;
+    background:#d7b55e;
+    border-radius:10px;
+}
+
+.bell:hover{
+    transform:translateY(-5px);
+}
+
+/* =========================
+   UI
+========================= */
+
+.topbar{
+    position:fixed;
+    top:22px;
+    left:25px;
+    right:25px;
+    z-index:50;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    pointer-events:none;
+}
+
+.logo{
+    font-size:11px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    opacity:.55;
+}
+
+.counter{
+    font-size:11px;
+    opacity:.5;
+}
+
+.progress{
+    position:fixed;
+    top:0;
+    left:0;
+    height:2px;
+    width:0%;
+    background:#f2ce78;
+    z-index:100;
+    transition:1s;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    z-index:500;
+    background:rgba(0,0,0,.72);
+    backdrop-filter:blur(15px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    opacity:0;
+    visibility:hidden;
+    transition:.5s;
+    padding:20px;
+}
+
+.modal.show{
+    opacity:1;
+    visibility:visible;
+}
+
+.modal-card{
+    width:min(650px,94vw);
+    max-height:88vh;
+    overflow:auto;
+    padding:45px;
+    border:1px solid rgba(255,255,255,.12);
+    background:linear-gradient(145deg,rgba(35,31,27,.96),rgba(15,14,13,.98));
+    border-radius:22px;
+    box-shadow:0 40px 100px rgba(0,0,0,.8);
+    transform:translateY(25px) scale(.96);
+    transition:.5s;
+}
+
+.modal.show .modal-card{
+    transform:none;
+}
+
+.close{
+    float:right;
+    border:0;
+    background:none;
+    color:white;
+    opacity:.5;
+    font-size:25px;
+    cursor:pointer;
+}
+
+.modal h2{
+    font-family:"Playfair Display",serif;
+    font-size:35px;
+    margin-bottom:20px;
+}
+
+.modal p{
+    color:#c8c3bb;
+    line-height:1.8;
+}
+
+.letter{
+    font-family:Caveat,cursive;
+    font-size:25px;
+    line-height:1.55;
+    color:#f1e6c9;
+}
+
+.award{
+    text-align:center;
+    padding:25px;
+}
+
+.award-circle{
+    width:120px;
+    height:120px;
+    margin:0 auto 25px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:55px;
+    border:1px solid rgba(255,210,110,.45);
+    box-shadow:0 0 45px rgba(255,205,100,.15);
+}
+
+.photo-big{
+    display:block;
+    width:100%;
+    max-height:55vh;
+    object-fit:contain;
+    border-radius:12px;
+    margin:20px auto;
+}
+
+/* =========================
+   FINAL
+========================= */
+
+#final{
+    position:fixed;
+    inset:0;
+    z-index:900;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:
+        radial-gradient(circle at center,rgba(255,205,110,.12),transparent 30%),
+        rgba(4,5,7,.96);
+    opacity:0;
+    visibility:hidden;
+    transition:1.5s;
+}
+
+#final.show{
+    opacity:1;
+    visibility:visible;
+}
+
+.final-content{
+    width:min(850px,90%);
+}
+
+.final-eyebrow{
+    letter-spacing:6px;
+    text-transform:uppercase;
+    font-size:10px;
+    opacity:.45;
+    margin-bottom:25px;
+}
+
+.final h1{
+    font-family:"Playfair Display",serif;
+    font-size:clamp(42px,7vw,82px);
+    line-height:1.05;
+}
+
+.final h1 span{
+    display:block;
+    font-family:Caveat,cursive;
+    font-size:clamp(45px,7vw,90px);
+    margin-top:15px;
+}
+
+.final p{
+    max-width:600px;
+    margin:30px auto 0;
+    color:#aaa;
+    line-height:1.8;
+}
+
+.heart{
+    margin-top:30px;
+    font-size:35px;
+    animation:heart 1.5s infinite;
+}
+
+@keyframes heart{
+    50%{transform:scale(1.2)}
+}
+
+/* =========================
+   PARTICLES
+========================= */
+
+.particle{
+    position:fixed;
+    pointer-events:none;
+    z-index:950;
+    font-size:20px;
+    animation:particle 2.8s ease-out forwards;
+}
+
+@keyframes particle{
+    from{
+        transform:translate(0,0) scale(.5) rotate(0);
+        opacity:1;
+    }
+    to{
+        transform:translate(var(--x),var(--y)) scale(1.4) rotate(180deg);
+        opacity:0;
+    }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:800px){
+
+    .window{
+        width:38vw;
+        height:24vh;
+        right:4%;
+        top:11%;
+    }
+
+    .board{
+        left:5%;
+        top:17%;
+        width:72%;
+        height:34%;
+        border-width:9px;
+    }
+
+    .photo-frame{
+        width:85px;
+        height:105px;
+        left:8%;
+        bottom:32%;
+    }
+
+    .shelf{
+        right:4%;
+        bottom:31%;
+        width:25%;
+    }
+
+    .desk{
+        left:12%;
+        width:75%;
+        bottom:12%;
+        height:14%;
+    }
+
+    .bell{
+        right:8%;
+        bottom:28%;
+        transform:scale(.75);
+    }
+
+    .fan{
+        left:43%;
+        transform:scale(.65);
+    }
+
+    .chalk-line.one{
+        top:25%;
+    }
+
+    .chalk-line.two{
+        top:50%;
+    }
+
+    .modal-card{
+        padding:30px 24px;
+    }
+
+    .modal h2{
+        font-size:28px;
+    }
+}
+
+@media(max-width:500px){
+
+    .intro-title{
+        font-size:43px;
+    }
+
+    .intro-title span{
+        font-size:38px;
+    }
+
+    .board{
+        height:31%;
+    }
+
+    .window{
+        opacity:.75;
+    }
+
+    .shelf{
+        height:12%;
+    }
+
+    .book{
+        height:60px !important;
+        width:18px;
+    }
+
+    .photo-frame{
+        bottom:28%;
+    }
+
+    .desk{
+        bottom:9%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     INTRO
+========================= -->
+
+<section id="intro">
+    <div class="intro-content">
+        <div class="intro-small">A little journey for someone special</div>
+
+        <h1 class="intro-title">
+            Welcome Back
+            <span>to your classroom...</span>
+        </h1>
+
+        <p class="intro-text">
+            This isn't just another Teacher's Day wish.
+            There are a few things waiting for you inside.
+        </p>
+
+        <button class="enter" onclick="enterClassroom()">
+            Enter the classroom →
+        </button>
+    </div>
+</section>
+
+
+<!-- =========================
+     WORLD
+========================= -->
+
+<div id="world">
+
+    <div class="progress" id="progress"></div>
+
+    <div class="topbar">
+        <div class="logo">A Classroom Remembered</div>
+        <div class="counter" id="counter">0 / 6 discoveries</div>
+    </div>
+
+    <main class="classroom" id="classroom">
+
+        <div class="wall"></div>
+        <div class="floor"></div>
+
+        <div class="window">
+            <div class="sunbeam"></div>
+        </div>
+
+        <div class="curtain left"></div>
+        <div class="curtain right"></div>
+
+        <div class="dust">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+        </div>
+
+        <!-- FAN -->
+        <div class="fan">
+            <div class="blades">
+                <i></i><i></i><i></i>
+            </div>
+            <div class="fan-center"></div>
+        </div>
+
+
+        <!-- BLACKBOARD -->
+        <div
+            class="board secret"
+            id="board"
+            onclick="discover('board')"
+        >
+            <div class="chalk-line one" id="line1"></div>
+            <div class="chalk-line two" id="line2"></div>
+
+            <div class="board-note">
+                Some lessons stay forever...
+            </div>
+        </div>
+
+
+        <!-- SHELF -->
+        <div class="shelf secret" onclick="discover('shelf')">
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+            <div class="book"></div>
+        </div>
+
+
+        <!-- TEACHER PHOTO -->
+        <div
+            class="photo-frame secret"
+            onclick="discover('photo')"
+        >
+            <img
+                src="teacher.jpg"
+                alt="Teacher"
+                onerror="this.style.opacity='.15'"
+            >
+            <div class="photo-caption">Our Teacher ❤️</div>
+        </div>
+
+
+        <!-- DESK -->
+        <div class="desk">
+
+            <div
+                class="drawer secret"
+                onclick="discover('drawer')"
+            >
+                <div class="drawer-handle"></div>
+            </div>
+
+        </div>
+
+
+        <!-- BELL -->
+        <div
+            class="bell secret"
+            onclick="discover('bell')"
+        >
+            <div class="bell-top"></div>
+            <div class="bell-body"></div>
+            <div class="bell-bottom"></div>
+        </div>
+
+    </main>
+</div>
+
+
+<!-- =========================
+     MODAL
+========================= -->
+
+<div class="modal" id="modal" onclick="outsideClose(event)">
+    <div class="modal-card">
+        <button class="close" onclick="closeModal()">×</button>
+        <div id="modalContent"></div>
+    </div>
+</div>
+
+
+<!-- =========================
+     FINAL
+========================= -->
+
+<div id="final">
+    <div class="final-content">
+
+        <div class="final-eyebrow">
+            You found everything
+        </div>
+
+        <h1>
+            Some teachers teach lessons.
+            <span>Some become the lesson.</span>
+        </h1>
+
+        <p>
+            Thank you for every explanation, every correction,
+            every bit of patience, every little push,
+            and every moment that made us believe we could do better.
+        </p>
+
+        <div class="heart">❤️</div>
+
+    </div>
+</div>
+
+
+<script>
+
+/* =========================================
+   PHOTO SETTINGS
+   Simply change these filenames if needed.
+========================================= */
+
+const TEACHER_PHOTO = "teacher.jpg";
+
+
+/* =========================================
+   DISCOVERY SYSTEM
+========================================= */
+
+const discoveries = new Set();
+
+const totalDiscoveries = 6;
+
+function discover(item){
+
+    if(discoveries.has(item)){
+        return;
+    }
+
+    discoveries.add(item);
+
+    updateProgress();
+
+    if(item === "board"){
+        boardMessage();
+    }
+
+    if(item === "photo"){
+        teacherPhoto();
+    }
+
+    if(item === "drawer"){
+        letter();
+    }
+
+    if(item === "shelf"){
+        award();
+    }
+
+    if(item === "bell"){
+        bell();
+    }
+
+    if(discoveries.size === totalDiscoveries){
+        setTimeout(showFinal,1800);
+    }
+}
+
+
+/* =========================================
+   PROGRESS
+========================================= */
+
+function updateProgress(){
+
+    const count = discoveries.size;
+
+    document.getElementById("counter").innerText =
+        count + " / " + totalDiscoveries + " discoveries";
+
+    document.getElementById("progress").style.width =
+        (count / totalDiscoveries * 100) + "%";
+}
+
+
+/* =========================================
+   ENTER
+========================================= */
+
+function enterClassroom(){
+
+    document.getElementById("intro").classList.add("hide");
+
+    setTimeout(()=>{
+        document.getElementById("world").classList.add("show");
+        startChalk();
+    },700);
+}
+
+
+/* =========================================
+   CHALK ANIMATION
+========================================= */
+
+function typeText(element,text,speed,callback){
+
+    let i=0;
+
+    function type(){
+
+        if(i < text.length){
+
+            element.innerHTML =
+                text.substring(0,i+1) +
+                '<span class="chalk-cursor"></span>';
+
+            i++;
+
+            setTimeout(type,speed);
+
+        }else{
+
+            element.innerHTML = text;
+
+            if(callback){
+                callback();
+            }
+        }
+    }
+
+    type();
+}
+
+
+function startChalk(){
+
+    const line1 = document.getElementById("line1");
+    const line2 = document.getElementById("line2");
+
+    setTimeout(()=>{
+
+        typeText(
+            line1,
+            "Happy Teacher's Day ❤️",
+            90,
+            ()=>{
+                setTimeout(()=>{
+                    typeText(
+                        line2,
+                        "To The Best Teacher Ever ✨",
+                        75
+                    );
+                },700);
+            }
+        );
+
+    },900);
+}
+
+
+/* =========================================
+   BOARD
+========================================= */
+
+function boardMessage(){
+
+    openModal(`
+        <h2>The first lesson</h2>
+
+        <p style="font-family:Caveat;font-size:28px;color:#eee6d1;">
+            "A good teacher explains.<br>
+            A great teacher inspires."
+        </p>
+
+        <br>
+
+        <p>
+            And somewhere between the lessons,
+            homework, questions and exams,
+            you managed to leave something much more
+            important behind — memories.
+        </p>
+    `);
+}
+
+
+/* =========================================
+   TEACHER PHOTO
+========================================= */
+
+function teacherPhoto(){
+
+    openModal(`
+        <h2>Someone worth remembering ❤️</h2>
+
+        <img
+            class="photo-big"
+            src="${TEACHER_PHOTO}"
+            onerror="this.style.display='none'"
+            alt="Teacher"
+        >
+
+        <p style="text-align:center;">
+            Behind every successful student,
+            there is often a teacher who refused to give up on them.
+        </p>
+    `);
+}
+
+
+/* =========================================
+   LETTER
+========================================= */
+
+function letter(){
+
+    openModal(`
+        <h2>A letter from the last bench...</h2>
+
+        <div class="letter">
+
+            Dear Teacher,
+
+            <br><br>
+
+            Maybe we don't say it enough.
+
+            <br><br>
+
+            Thank you for answering the same question
+            more than once.
+
+            <br><br>
+
+            Thank you for correcting us when we were wrong,
+            encouraging us when we doubted ourselves,
+            and believing in us even when we didn't.
+
+            <br><br>
+
+            Years from now, we may forget some formulas,
+            definitions and chapters.
+
+            <br><br>
+
+            But we won't forget the teacher
+            who made us believe we could.
+
+            <br><br>
+
+            Happy Teacher's Day. ❤️
+
+        </div>
+    `);
+}
+
+
+/* =========================================
+   AWARD
+========================================= */
+
+function award(){
+
+    openModal(`
+        <div class="award">
+
+            <div class="award-circle">
+                🏆
+            </div>
+
+            <h2>
+                The World's Most Valuable Teacher
+            </h2>
+
+            <p>
+                Awarded for extraordinary patience,
+                unforgettable lessons,
+                endless encouragement,
+                and making an ordinary classroom
+                feel extraordinary.
+            </p>
+
+            <br>
+
+            <p style="
+                font-family:Caveat;
+                font-size:30px;
+                color:#f0d68c;
+            ">
+                Final Grade: LEGENDARY
+            </p>
+
+        </div>
+    `);
+}
+
+
+/* =========================================
+   BELL
+========================================= */
+
+function bell(){
+
+    playBell();
+
+    openModal(`
+        <div style="text-align:center">
+
+            <div style="font-size:65px;margin-bottom:15px;">
+                🔔
+            </div>
+
+            <h2>The final bell.</h2>
+
+            <p>
+                Class dismissed...
+            </p>
+
+            <br>
+
+            <p style="
+                font-family:Caveat;
+                font-size:29px;
+                color:#f0dfba;
+            ">
+                But the lessons never were.
+            </p>
+
+        </div>
+    `);
+}
+
+
+function playBell(){
+
+    try{
+
+        const AudioContext =
+            window.AudioContext ||
+            window.webkitAudioContext;
+
+        const ctx = new AudioContext();
+
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(700,ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(
+            420,
+            ctx.currentTime + 1
+        );
+
+        gain.gain.setValueAtTime(.0001,ctx.currentTime);
+
+        gain.gain.exponentialRampToValueAtTime(
+            .25,
+            ctx.currentTime + .02
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+            .0001,
+            ctx.currentTime + 1.2
+        );
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start();
+        osc.stop(ctx.currentTime + 1.3);
+
+    }catch(e){}
+}
+
+
+/* =========================================
+   MODAL
+========================================= */
+
+function openModal(content){
+
+    document.getElementById("modalContent").innerHTML = content;
+
+    document.getElementById("modal").classList.add("show");
+}
+
+
+function closeModal(){
+
+    document.getElementById("modal").classList.remove("show");
+}
+
+
+function outsideClose(e){
+
+    if(e.target.id === "modal"){
+        closeModal();
+    }
+}
+
+
+/* =========================================
+   FINAL
+========================================= */
+
+function showFinal(){
+
+    closeModal();
+
+    setTimeout(()=>{
+
+        document
+            .getElementById("final")
+            .classList.add("show");
+
+        createParticles();
+
+    },800);
+}
+
+
+/* =========================================
+   PARTICLES
+========================================= */
+
+function createParticles(){
+
+    const symbols = ["❤️","✨","⭐","♡","✦"];
+
+    for(let i=0;i<70;i++){
+
+        const p = document.createElement("div");
+
+        p.className = "particle";
+
+        p.innerText =
+            symbols[Math.floor(Math.random()*symbols.length)];
+
+        p.style.left =
+            (Math.random()*100) + "vw";
+
+        p.style.top =
+            (Math.random()*100) + "vh";
+
+        p.style.setProperty(
+            "--x",
+            ((Math.random()-.5)*500) + "px"
+        );
+
+        p.style.setProperty(
+            "--y",
+            ((Math.random()-.5)*500) + "px"
+        );
+
+        p.style.animationDelay =
+            (Math.random()*1.5) + "s";
+
+        document.body.appendChild(p);
+
+        setTimeout(()=>{
+            p.remove();
+        },4500);
+    }
+}
+
+
+/* =========================================
+   SMALL PARALLAX EFFECT
+========================================= */
+
+document.addEventListener("mousemove",e=>{
+
+    const classroom =
+        document.getElementById("classroom");
+
+    if(!classroom) return;
+
+    const x =
+        (e.clientX / window.innerWidth - .5) * 2;
+
+    const y =
+        (e.clientY / window.innerHeight - .5) * 2;
+
+    classroom.style.transform =
+        `translate(${x * 5}px,${y * 3}px)`;
+});
+
+
+/* =========================================
+   KEYBOARD
+========================================= */
+
+document.addEventListener("keydown",e=>{
+
+    if(e.key === "Escape"){
+        closeModal();
+    }
+
+});
+
+
+</script>
+
+</body>
+</html>
+```
